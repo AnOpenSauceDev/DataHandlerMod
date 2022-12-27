@@ -21,20 +21,6 @@ public class DataHandle implements ModInitializer {
         ThreadedDataWriter writer = new ThreadedDataWriter();
         writer.Write("dataHandlingLib","WhatIsThis","hello there! If you are wondering what this is, its a data storage library");
         ThreadedDataReader dataReader = new ThreadedDataReader();
-        dataReader.Read("dataHandlingLib","WhatIsThis");
-        /* debug stuff
-        new Thread( () -> {
-            try {
-                Thread.sleep(300);
-                DataHandlerMainLogger.warn(dataReader.output);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
-        }).start();
-
-
-         */
     }
 
 }
