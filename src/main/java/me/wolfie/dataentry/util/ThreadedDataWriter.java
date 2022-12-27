@@ -62,7 +62,7 @@ public class ThreadedDataWriter {
 
                FinalPath = path + "\\DataHandle\\" + modID + "\\" + LineID + ".data";
 
-               DataHandle.DataHandlerMainLogger.error("PATHDATA (delete) = " +FinalPath );
+
 
                try {
                    File DataFile = new File(FinalPath);
@@ -72,7 +72,6 @@ public class ThreadedDataWriter {
                    FileWriter writer = new FileWriter(DataFile);
                    writer.write(inputData.toString());
                    writer.close();
-                   DataHandle.DataHandlerMainLogger.error("buffer written?!?");
                }
                catch (IOException e) {
                    DataHandle.DataHandlerMainLogger.error("ERROR while writing file!");
