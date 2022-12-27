@@ -1,10 +1,11 @@
-# dataHandlingLib
- an incredibly basic and fast data saving and writing library
- threw this together so i use it in my projects.
+# <img src="https://github.com/AnOpenSauceDev/DataHandlerMod/blob/main/cringe_joke.gif?raw=true" width="40" height="40" /> dataHandlingLib
+
+ an incredibly basic and fast data saving and writing library.
+ I threw this together so i use it in my projects.
  
- # how to use
+## how to use this
  
-there are two things you really need to know:
+there are two things you really need to know when using this _~~cursed abomination~~_ mod:
 1. `ThreadedDataReader`
 2. `ThreadedDataWriter`
 
@@ -27,6 +28,6 @@ ThreadedDataReader reader = new ThreadedDataReader();
 
 # is this for you?
 **possibly**, as long as you don't need advanced and complicated file structures.
-as of the time this is being written, client and server data will not be synced.
-This is due to the fact that ~~there is no real way to handle the syncing of large files in a reasonable matter.~~
-im lazy.
+as of the time this is being written, **client and server data will not be synced.**
+This is due to the fact _~~that there is no real way to handle the syncing of large files in a reasonable matter.~~_
+that im lazy.
