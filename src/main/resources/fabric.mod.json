@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "datahandlinglib",
+  "version": "${version}",
+  "name": "DataHandlingLib",
+  "description": "A lightweight and fast library for storing data for a certain block game.",
+  "authors": [
+    "AnOpenSauceDev"
+  ],
+  "contact": {
+    "website": "whenever i remember to note it down",
+    "repo": "<insert git link>"
+  },
+  "license": "MIT",
+  "icon": "assets/datahandlinglib/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.wolfie.dataentry.client.DataHandleClient"
+    ],
+    "main": [
+      "me.wolfie.dataentry.DataHandle"
+    ]
+  },
+  "mixins": [
+    "datahandlinglib.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}
