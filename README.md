@@ -6,6 +6,25 @@
  (it's kinda public because im too lazy to setup my tokens and dont wan't to deal with trying to find some old folder.)
  
 ## 🤔 how to use this
+
+## 🔧 setup
+
+in your `build.grade` file,
+
+```gradle
+
+repositories {
+    flatDir {
+        dirs 'YOUR_LIBRARY_FOLDER_NAME'
+    }
+}
+
+dependencies {
+    modImplementation 'me.wolfie.dataentry:1.0' // this will look for a file called "1.0", so you might want to change that.
+}
+```
+
+## 💻 writing code for this
  
 there are two things you really need to know when using this _~~cursed abomination~~_ mod:
 1. `ThreadedDataReader`
