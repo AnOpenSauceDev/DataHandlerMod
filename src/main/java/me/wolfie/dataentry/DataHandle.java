@@ -19,7 +19,7 @@ public class DataHandle implements ModInitializer {
 
         ServerTickEvents.END_SERVER_TICK.register(new ServerListener());
         ThreadedDataWriter writer = new ThreadedDataWriter();
-        writer.Write("dataHandlingLib","WhatIsThis","hello there! If you are wondering what this is, its a data storage library");
+        writer.Write("dataHandlingLib","WhatIsThis","hello there! If you are wondering what this is, it's a simple data library. see: https://github.com/AnOpenSauceDev/DataHandlerMod");
         ThreadedDataReader dataReader = new ThreadedDataReader();
     }
 
