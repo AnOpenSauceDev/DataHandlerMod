@@ -29,7 +29,7 @@ public class ThreadedDataWriter {
 
         String FinalPath;
         //if client
-        if(MinecraftClient.getInstance() != null){
+        if(MinecraftClient.class != null){
 
            String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
@@ -151,7 +151,7 @@ public class ThreadedDataWriter {
 
             String FinalPath;
             //if client
-            if(MinecraftClient.getInstance() != null){
+            if(MinecraftClient.class != null){
 
                 String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
