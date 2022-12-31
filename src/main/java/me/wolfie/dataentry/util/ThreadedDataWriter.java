@@ -25,11 +25,24 @@ public class ThreadedDataWriter {
     public void Write(String modID, String LineID, Object inputData){ // this way we can read into other mods
         new Thread(() ->{
 
+            boolean isClient = false;
+            try {
+                Class client = Class.forName("net.minecraft.client.MinecraftClient");
+                Object obj = client.newInstance();
+                isClient = true;
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (RuntimeException e){
+                e.printStackTrace();
+            }
 
-
-        String FinalPath;
+            String FinalPath;
         //if client
-        if(MinecraftClient.class != null){
+        if(isClient){
 
            String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
@@ -87,51 +100,50 @@ public class ThreadedDataWriter {
 
 
         }
-        else
-        { // else if server
+        else { // else if server
             // same stuff really, just for the server.
-            String path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath();
+            if (ServerListener.serverInstance != null) {
+                String path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath();
 
 
-                    if(SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX){
+                if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX) {
 
-                        FinalPath = path + "/DataHandle/" + modID + "/" + LineID + ".data";
-
-                    try {
-                    File DataFile = new File(FinalPath);
-                    DataFile.delete();
-                    FileWriter writer = new FileWriter(DataFile);
-                    writer.write(inputData.toString());
-                    writer.close();
-                    }
-                     catch (IOException e) {
-                    DataHandle.DataHandlerMainLogger.error("ERROR while writing file!");
-                    e.printStackTrace();
-                    DataHandle.DataHandlerMainLogger.warn("Data may have been corrupted or not saved! Be careful!");
-                    }
-
-                    }else if (SystemUtils.IS_OS_WINDOWS) {
-
-                        FinalPath = path + "\\DataHandle\\" + modID + "\\" + LineID + ".data";
+                    FinalPath = path + "/DataHandle/" + modID + "/" + LineID + ".data";
 
                     try {
-                    File DataFile = new File(FinalPath);
-                    DataFile.delete();
-                    FileWriter writer = new FileWriter(DataFile);
-                    writer.write(inputData.toString());
-                    writer.close();
-                    }
-                    catch (IOException e) {
-                    DataHandle.DataHandlerMainLogger.error("ERROR while writing file!");
-                    e.printStackTrace();
-                    DataHandle.DataHandlerMainLogger.warn("Data may have been corrupted or not saved! Be careful!");
+                        File DataFile = new File(FinalPath);
+                        DataFile.delete();
+                        FileWriter writer = new FileWriter(DataFile);
+                        writer.write(inputData.toString());
+                        writer.close();
+                    } catch (IOException e) {
+                        DataHandle.DataHandlerMainLogger.error("ERROR while writing file!");
+                        e.printStackTrace();
+                        DataHandle.DataHandlerMainLogger.warn("Data may have been corrupted or not saved! Be careful!");
                     }
 
-                }else {
+                } else if (SystemUtils.IS_OS_WINDOWS) {
+
+                    FinalPath = path + "\\DataHandle\\" + modID + "\\" + LineID + ".data";
+
+                    try {
+                        File DataFile = new File(FinalPath);
+                        DataFile.delete();
+                        FileWriter writer = new FileWriter(DataFile);
+                        writer.write(inputData.toString());
+                        writer.close();
+                    } catch (IOException e) {
+                        DataHandle.DataHandlerMainLogger.error("ERROR while writing file!");
+                        e.printStackTrace();
+                        DataHandle.DataHandlerMainLogger.warn("Data may have been corrupted or not saved! Be careful!");
+                    }
+
+                } else {
                     DataHandle.DataHandlerMainLogger.error("ERROR: It seems your os isn't supported! Only Unix, Linux, OSX, Windows and BSD are fully supported!");
                     DataHandle.DataHandlerMainLogger.warn("Please file an issue on DataHandlingLib's repository if this keeps happening.");
                 }
             }
+        }
         }).start();
     }
 
@@ -148,10 +160,24 @@ public class ThreadedDataWriter {
         new Thread(() ->{
 
 
+            boolean isClient = false;
+            try {
+                Class client = Class.forName("net.minecraft.client.MinecraftClient");
+                Object obj = client.newInstance();
+                isClient = true;
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+
+
 
             String FinalPath;
             //if client
-            if(MinecraftClient.class != null){
+            if(isClient){
 
                 String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
