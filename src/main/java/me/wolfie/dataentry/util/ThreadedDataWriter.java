@@ -25,11 +25,22 @@ public class ThreadedDataWriter {
     public void Write(String modID, String LineID, Object inputData){ // this way we can read into other mods
         new Thread(() ->{
 
+            boolean isClient = false;
+            try {
+                Class client = Class.forName("net.minecraft.client.MinecraftClient");
+                Object obj = client.newInstance();
+                isClient = true;
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
 
-
-        String FinalPath;
+            String FinalPath;
         //if client
-        if(MinecraftClient.class != null){
+        if(isClient){
 
            String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
@@ -148,10 +159,24 @@ public class ThreadedDataWriter {
         new Thread(() ->{
 
 
+            boolean isClient = false;
+            try {
+                Class client = Class.forName("net.minecraft.client.MinecraftClient");
+                Object obj = client.newInstance();
+                isClient = true;
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+
+
 
             String FinalPath;
             //if client
-            if(MinecraftClient.class != null){
+            if(isClient){
 
                 String path = MinecraftClient.getInstance().runDirectory.getAbsolutePath();
 
