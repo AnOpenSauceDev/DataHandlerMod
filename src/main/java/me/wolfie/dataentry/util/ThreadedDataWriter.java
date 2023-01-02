@@ -48,6 +48,7 @@ public class ThreadedDataWriter {
                try {
                    File DataFile = new File(FinalPath);
                    DataFile.delete();
+                    DataFile.mkdirs();
                    FileWriter writer = new FileWriter(DataFile);
                    writer.write(inputData.toString());
                    writer.close();
@@ -102,6 +103,7 @@ public class ThreadedDataWriter {
                     try {
                         File DataFile = new File(FinalPath);
                         DataFile.delete();
+                         DataFile.mkdirs();
                         FileWriter writer = new FileWriter(DataFile);
                         writer.write(inputData.toString());
                         writer.close();
@@ -118,6 +120,7 @@ public class ThreadedDataWriter {
                     try {
                         File DataFile = new File(FinalPath);
                         DataFile.delete();
+                         DataFile.mkdirs();
                         FileWriter writer = new FileWriter(DataFile);
                         writer.write(inputData.toString());
                         writer.close();
@@ -173,6 +176,7 @@ public class ThreadedDataWriter {
                     try {
                         File DataFile = new File(FinalPath);
                         DataFile.delete();
+                         DataFile.mkdirs();
                         FileWriter writer = new FileWriter(DataFile);
                         writer.write(inputData.toString());
                         writer.close();
@@ -232,6 +236,7 @@ public class ThreadedDataWriter {
                     try {
                         File DataFile = new File(FinalPath);
                         DataFile.delete();
+                         DataFile.mkdirs();
                         FileWriter writer = new FileWriter(DataFile);
                         writer.write(inputData.toString());
                         writer.close();
@@ -251,6 +256,7 @@ public class ThreadedDataWriter {
                     try {
                         File DataFile = new File(FinalPath);
                         DataFile.delete();
+                         DataFile.mkdirs();
                         FileWriter writer = new FileWriter(DataFile);
                         writer.write(inputData.toString());
                         writer.close();
