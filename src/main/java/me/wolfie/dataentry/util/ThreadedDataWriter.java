@@ -22,12 +22,12 @@ public class ThreadedDataWriter {
      * @param LineID The identifier for the file
      * @param inputData The data you want to write to the file.
      */
-    public void Write(String modID, String LineID, Object inputData){ // this way we can read into other mods
+    public void Write(String modID, String LineID, Object inputData, boolean client){ // this way we can read into other mods
         new Thread(() ->{
 
             boolean isClient = false;
 
-            isClient = verifyClass.verify(true);
+            isClient = client;
 
             String FinalPath;
         //if client
@@ -145,14 +145,14 @@ public class ThreadedDataWriter {
      * @param inputData The data you want to write to the file.
      * @param importantData if this is important, repeatedly cycle until it saves (potentially very slow)
      */
-    public void Write(String modID, String LineID, Object inputData, boolean importantData){ // this way we can read into other mods
+    public void Write(String modID, String LineID, Object inputData, boolean importantData, boolean client){ // this way we can read into other mods
         new Thread(() ->{
 
 
             boolean isClient = false;
 
 
-            isClient = verifyClass.verify(true);
+            isClient = client;
 
             String FinalPath;
             //if client
