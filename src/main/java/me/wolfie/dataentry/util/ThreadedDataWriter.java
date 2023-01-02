@@ -26,19 +26,8 @@ public class ThreadedDataWriter {
         new Thread(() ->{
 
             boolean isClient = false;
-            try {
-                Class client = Class.forName("net.minecraft.client.MinecraftClient");
-                Object obj = client.newInstance();
-                isClient = true;
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (RuntimeException e){
-                e.printStackTrace();
-            }
+
+            isClient = verifyClass.verify(true);
 
             String FinalPath;
         //if client
@@ -161,19 +150,9 @@ public class ThreadedDataWriter {
 
 
             boolean isClient = false;
-            try {
-                Class client = Class.forName("net.minecraft.client.MinecraftClient");
-                Object obj = client.newInstance();
-                isClient = true;
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
 
 
+            isClient = verifyClass.verify(true);
 
             String FinalPath;
             //if client
