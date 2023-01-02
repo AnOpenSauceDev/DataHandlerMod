@@ -21,7 +21,7 @@ public class ThreadedDataReader {
             String path;
             if(Client) {
                 if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX) {
-                    path = MinecraftClient.getInstance().runDirectory.getAbsolutePath() + "/DataHandle/" + modID + "/" + lineID + ".data";
+                    path = MinecraftClient.getInstance().runDirectory.getAbsolutePath() + "/DataHandle/" + modID + "/" + lineID + ".data"; // getAbsolutePath()'s return is fine on runDirectory, but not on server
 
                     File file = new File(path);
                     try {
@@ -53,7 +53,7 @@ public class ThreadedDataReader {
 
             }else {
                 if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX) {
-                    path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath() + "/DataHandle/" + modID + "/" + lineID + ".data";
+                    path = ServerListener.serverInstance.getRunDirectory().getParent() + "/DataHandle/" + modID + "/" + lineID + ".data";
 
                     File file = new File(path);
                     try {
@@ -69,7 +69,7 @@ public class ThreadedDataReader {
                         throw new RuntimeException(e);
                     }
                 } else {
-                    path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath() + "\\DataHandle\\" + modID + "\\" + lineID + ".data";
+                    path = ServerListener.serverInstance.getRunDirectory().getParent() + "\\DataHandle\\" + modID + "\\" + lineID + ".data";
                     File file = new File(path);
                     try {
                         Scanner reader = new Scanner(file);
