@@ -18,7 +18,7 @@ public class ThreadedDataReader {
     public void Read(String modID, String lineID){
         new Thread(() ->{
             String path;
-            if(MinecraftClient.getInstance() != null){
+            if(verifyClass.verify(true)){
                 if(SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX) {
                     path = MinecraftClient.getInstance().runDirectory.getAbsolutePath() + "/DataHandle/" + modID + "/" + lineID + ".data";
 
