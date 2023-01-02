@@ -79,7 +79,8 @@ public class ThreadedDataReader {
 
                         reader.close();
                     } catch (FileNotFoundException e) {
-                        throw new RuntimeException(e);
+                        System.out.println("something didn't read correctly!");
+                        e.printStackTrace();
                     }
                 }
             }
