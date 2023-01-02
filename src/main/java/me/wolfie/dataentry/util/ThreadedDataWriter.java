@@ -92,7 +92,7 @@ public class ThreadedDataWriter {
         else { // else if server
             // same stuff really, just for the server.
             if (ServerListener.serverInstance != null) {
-                String path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath();
+                String path = ServerListener.serverInstance.getRunDirectory().getParent();
 
 
                 if (SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX) {
@@ -222,7 +222,7 @@ public class ThreadedDataWriter {
             else
             { // else if server
                 // same stuff really, just for the server.
-                String path = ServerListener.serverInstance.getRunDirectory().getAbsolutePath();
+                String path = ServerListener.serverInstance.getRunDirectory().getParent();
 
 
                 if(SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC_OSX || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_UNIX){
