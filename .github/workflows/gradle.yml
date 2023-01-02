@@ -35,7 +35,7 @@ jobs:
       with:
         arguments: build
     - name: Publish artifact JARs
-    - uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: build artifacts
         path: /build/libs
