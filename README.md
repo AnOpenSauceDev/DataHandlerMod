@@ -3,7 +3,6 @@
  an incredibly basic and fast data saving and writing library.
  I threw this together so i use it in my projects.
  
- (it's kinda public because im too lazy to setup my tokens and dont wan't to deal with trying to find some old folder.)
  
 ## 🤔 how to use this
 
