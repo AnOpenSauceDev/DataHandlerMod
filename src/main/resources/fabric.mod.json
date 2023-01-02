@@ -15,9 +15,6 @@
   "icon": "assets/datahandlinglib/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.wolfie.dataentry.client.DataHandleClient"
-    ],
     "main": [
       "me.wolfie.dataentry.DataHandle"
     ]
