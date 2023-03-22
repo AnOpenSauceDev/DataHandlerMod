@@ -3,6 +3,8 @@
  an incredibly basic and fast data saving and writing library.
  I threw this together so i use it in my projects.
  
+ ## ---THIS MOD HAS BEEN RETIRED---
+ i used this in a few projects, but those never really made it to the light of day. **Please use literally any other better data API.** <br>
  
 ## 🤔 how to use this
 
